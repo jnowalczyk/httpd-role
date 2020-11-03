@@ -1,0 +1,17 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: centos:7
+    command: /sbin/init
+    privileged: True
+lint: |
+  set -e
+  yamllint .
+provisioner:
+  name: ansible
+verifier:
+  name: testinfra
